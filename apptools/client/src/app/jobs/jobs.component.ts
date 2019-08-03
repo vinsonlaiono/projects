@@ -8,7 +8,7 @@ import { HttpService } from '../http.service';
 })
 export class JobsComponent implements OnInit {
 
-    
+  jobs;
 
   constructor(
     private _httpSerivce : HttpService,
@@ -20,7 +20,8 @@ export class JobsComponent implements OnInit {
 
   getAllJobs(){
     this._httpSerivce.getJobs().subscribe( data => {
-      console.log(data)
+      console.log("Here is the data from jobs api", data)
+      this.jobs = data
     })
   }
 }
