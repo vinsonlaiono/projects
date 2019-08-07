@@ -1,9 +1,9 @@
 // npm install express body-parser path sequelize mysql2
 
 const express = require('express'),
-app = express(),
-bodyParser = require('body-parser'),
-port = process.env.PORT || 8000;
+      app = express(),
+      bodyParser = require('body-parser'),
+      port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 app.listen(port, () => console.log(`Listening on port: ${port}`));
@@ -15,5 +15,6 @@ app.use(function(req, res, next) {
   next();
 });
 
+require('./server/models/mongoose');               // MongoDB
 require('./server/models/sequalize')            // Sequelize
 require('./server/config/users/routes')(app)    // Routes
