@@ -35,4 +35,8 @@ export class HttpService {
       console.log("Seach url: ", jobsApiUrl)
       return this._http.get(`${jobsApiUrl}`, {headers:headers})
   }
+
+  githubLogIn(){
+    return this._http.get("https://github.com/login/oauth/authorize?client_id=a303fa5e19523e6c9c0b");
+  }
 }

@@ -16,5 +16,5 @@ app.use(function(req, res, next) {
 });
 
 require('./server/models/mongoose');               // MongoDB
-require('./server/models/sequalize')            // Sequelize
+require('./server/models/sequalize');            // Sequelize
 require('./server/config/users/routes')(app)    // Routes

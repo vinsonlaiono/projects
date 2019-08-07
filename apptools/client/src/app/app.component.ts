@@ -25,4 +25,11 @@ export class AppComponent {
     this.home = false;
     this.login = true;
   }
+
+  githubLogIn(){
+    this._httpService.githubLogIn().subscribe( data => {
+      console.log("Loggin in to github oauth");
+      console.log("data coming back: ", data);    
+    })
+  }
 }
