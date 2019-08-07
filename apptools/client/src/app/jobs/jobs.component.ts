@@ -8,20 +8,31 @@ import { HttpService } from '../http.service';
 })
 export class JobsComponent implements OnInit {
 
-  jobs;
+  jobs: any;
+  searchOptions: Object;
 
   constructor(
     private _httpSerivce : HttpService,
   ) { }
 
   ngOnInit() {
-    this.getAllJobs()
+    // this.getAllJobs()
+    this.searchOptions = {
+      description : '',
+      location: '',
+      full_time: true
+    }
   }
 
   getAllJobs(){
-    this._httpSerivce.getJobs().subscribe( data => {
-      console.log("Here is the data from jobs api", data)
+    console.log("Search Options in component", this.searchOptions)
+    this._httpSerivce.getJobs(this.searchOptions).subscribe( data => {
+      console.log("List of jobs from Github API: ", data)
       this.jobs = data
     })
+  }
+
+  addToMyApps(myJob){
+    console.log("Adding this job to my list of jobs", myJob)
   }
 }
